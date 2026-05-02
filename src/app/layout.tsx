@@ -4,7 +4,7 @@ import './globals.css'
 import { SITE } from '@/lib/constants'
 
 const inter = Inter({
-  subsets: ['latin', 'devanagari'],
+  subsets: ['latin'],
   variable: '--font-inter',
   display: 'swap',
 })
