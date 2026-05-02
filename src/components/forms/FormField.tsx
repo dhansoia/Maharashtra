@@ -15,7 +15,10 @@ interface BaseProps {
   className?: string
 }
 
-export const FieldText = React.forwardRef<HTMLInputElement, BaseProps & InputProps>(
+type FieldTextProps = BaseProps & Omit<InputProps, 'name' | 'required' | 'className'>
+type FieldTextareaProps = BaseProps & Omit<TextareaProps, 'name' | 'required' | 'className'>
+
+export const FieldText = React.forwardRef<HTMLInputElement, FieldTextProps>(
   ({ label, name, required, error, hint, className, ...props }, ref) => (
     <div className={cn('space-y-1.5', className)}>
       <Label htmlFor={name}>
@@ -30,7 +33,7 @@ export const FieldText = React.forwardRef<HTMLInputElement, BaseProps & InputPro
 )
 FieldText.displayName = 'FieldText'
 
-export const FieldTextarea = React.forwardRef<HTMLTextAreaElement, BaseProps & TextareaProps>(
+export const FieldTextarea = React.forwardRef<HTMLTextAreaElement, FieldTextareaProps>(
   ({ label, name, required, error, hint, className, ...props }, ref) => (
     <div className={cn('space-y-1.5', className)}>
       <Label htmlFor={name}>
@@ -45,9 +48,10 @@ export const FieldTextarea = React.forwardRef<HTMLTextAreaElement, BaseProps & T
 )
 FieldTextarea.displayName = 'FieldTextarea'
 
-interface FieldSelectProps extends BaseProps, React.SelectHTMLAttributes<HTMLSelectElement> {
-  options: { label: string; value: string }[]
-}
+type FieldSelectProps = BaseProps &
+  Omit<React.SelectHTMLAttributes<HTMLSelectElement>, 'name' | 'required' | 'className'> & {
+    options: { label: string; value: string }[]
+  }
 
 export const FieldSelect = React.forwardRef<HTMLSelectElement, FieldSelectProps>(
   ({ label, name, options, required, error, hint, className, ...props }, ref) => (

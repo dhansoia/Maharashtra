@@ -69,8 +69,8 @@ export function ROICalculator() {
 }
 
 function DistrictCalculator() {
-  const [pumps, setPumps] = useState(BUSINESS.DISTRICT_PUMPS)
-  const [litresPerPump, setLitresPerPump] = useState(BUSINESS.LITRES_PER_MONTH)
+  const [pumps, setPumps] = useState<number>(BUSINESS.DISTRICT_PUMPS)
+  const [litresPerPump, setLitresPerPump] = useState<number>(BUSINESS.LITRES_PER_MONTH)
 
   const data = useMemo(() => {
     const ownPumps = BUSINESS.DISTRICT_PUMPS
@@ -207,7 +207,7 @@ function DistrictCalculator() {
 }
 
 function PumpHolderCalculator() {
-  const [litres, setLitres] = useState(BUSINESS.LITRES_PER_MONTH)
+  const [litres, setLitres] = useState<number>(BUSINESS.LITRES_PER_MONTH)
 
   const data = useMemo(() => {
     const monthly = litres * BUSINESS.FUEL_COMMISSION.PUMP_HOLDER
