@@ -3,6 +3,9 @@ import { getPayload } from 'payload'
 import config from '@payload-config'
 import { MAHARASHTRA_DISTRICTS } from '@/lib/maharashtra-districts'
 
+export const runtime = 'nodejs'
+export const dynamic = 'force-dynamic'
+
 export async function GET() {
   try {
     const payload = await getPayload({ config })
