@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 218 60% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 218 60% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 218 60% 12%;
+    --primary: 218 56% 14%;
+    --primary-foreground: 40 100% 96%;
+    --secondary: 218 25% 96%;
+    --secondary-foreground: 218 60% 12%;
+    --muted: 218 25% 96%;
+    --muted-foreground: 218 12% 40%;
+    --accent: 40 90% 55%;
+    --accent-foreground: 218 60% 12%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 218 18% 90%;
+    --input: 218 18% 90%;
+    --ring: 40 90% 55%;
+    --radius: 0.5rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display tracking-tight;
+  }
+}
+
+@layer components {
+  .container-default {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+  .gradient-hero {
+    background: linear-gradient(135deg, #0f1e35 0%, #283f60 50%, #06101e 100%);
+  }
+  .gold-text {
+    @apply bg-gradient-to-r from-gold-300 to-gold-500 bg-clip-text text-transparent;
+  }
+}

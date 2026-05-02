@@ -1,0 +1,32 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "miniFuelPump": "Mini Fuel Pump",
+    "businessOpportunity": "Business Opportunity",
+    "districtPartner": "District Partner",
+    "pumpHolder": "Pump Holder",
+    "territoryMap": "Territory Map",
+    "blog": "Blog",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "applyNow": "Apply Now",
+    "login": "Partner Login"
+  },
+  "hero": {
+    "headline": "Maharashtra's Fuel Revolution Starts Here",
+    "subheadline": "AIVC × iFuel Official State Partner — Recruiting District Partners & Mini Fuel Pump Holders across all 36 districts.",
+    "ctaDistrict": "Become a District Partner",
+    "ctaPump": "Get a Mini Pump"
+  },
+  "stats": {
+    "districts": "Districts Covered",
+    "pumpsTarget": "Pumps Target",
+    "fuelCommission": "Per Litre Commission",
+    "incentive": "Pump Sale Incentive"
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "company": "AIVC iFuel Maharashtra"
+  }
+}
