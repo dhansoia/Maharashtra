@@ -17,14 +17,14 @@ const PLACEHOLDERS = [
     name: 'Suresh Deshmukh',
     role: 'Pump Holder — Satara',
     quote:
-      'I was a transport operator. With one mini pump on my farmhouse plot I now earn ₹28,000–₹30,000 every month, and supply diesel to my own vehicles too.',
+      'I was a transport operator. With one mini pump on my farmhouse plot I now have a steady recurring income, and supply diesel to my own vehicles too.',
     rating: 5,
   },
   {
     name: 'Anjali Joshi',
     role: 'District Partner — Nashik',
     quote:
-      'The territory rights and 10% pump-sale incentive made the unit economics work. We crossed payback in under 3 years.',
+      'The territory rights and pump-sale incentive made the unit economics work for us. The State Partner walked us through every number before we signed.',
     rating: 5,
   },
 ]

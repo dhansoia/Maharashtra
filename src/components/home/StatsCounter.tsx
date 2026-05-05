@@ -2,13 +2,13 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { MapPin, Fuel, IndianRupee, TrendingUp } from 'lucide-react'
+import { MapPin, Fuel, Layers, Users } from 'lucide-react'
 
 const STATS = [
   { value: 36, suffix: '+', label: 'Districts Covered', icon: MapPin },
-  { value: 480, suffix: '+', label: 'Pumps Target', icon: Fuel },
-  { value: 3.5, prefix: '₹', suffix: '/L', label: 'Per Litre Commission', icon: IndianRupee, decimals: 1 },
-  { value: 10, suffix: '%', label: 'Pump Sale Incentive', icon: TrendingUp },
+  { value: 5, suffix: '', label: 'Regions Reached', icon: Layers },
+  { value: 3, suffix: '', label: 'Partner Tiers', icon: Users },
+  { value: 1, suffix: '', label: 'Mission — Fuel for Every Village', icon: Fuel },
 ]
 
 function Counter({ to, decimals = 0 }: { to: number; decimals?: number }) {
@@ -54,8 +54,7 @@ export function StatsCounter() {
                   <Icon className="h-6 w-6" />
                 </div>
                 <p className="font-display text-3xl font-bold text-navy-900 md:text-4xl">
-                  {s.prefix}
-                  <Counter to={s.value} decimals={s.decimals ?? 0} />
+                  <Counter to={s.value} />
                   {s.suffix}
                 </p>
                 <p className="mt-1 text-sm text-navy-600">{s.label}</p>

@@ -6,35 +6,32 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { SectionHeader } from '@/components/ui/section-header'
-import { BUSINESS, formatINR } from '@/lib/constants'
 import { cn } from '@/lib/utils'
 
 const TIERS = [
   {
     icon: Building2,
     name: 'State Partner',
-    investment: BUSINESS.STATE_TOTAL,
-    pumps: `${BUSINESS.STATE_PUMPS} pumps + 12 districts`,
+    pumps: 'State-wide rights + district network',
     features: [
       'Exclusive Maharashtra rights',
       'Recruit 12+ District Partners',
-      '₹0.30/L on every Maharashtra litre',
       'Share of district registration fees',
+      'State-level branding & operations',
       'Master MOU with AIVC',
     ],
-    cta: { href: '/about', label: 'Learn About State Partner' },
+    cta: { href: '/contact', label: 'Talk to State Partner' },
     accent: 'navy' as const,
   },
   {
     icon: Crown,
     name: 'District Partner',
-    investment: BUSINESS.DISTRICT_TOTAL,
-    pumps: `${BUSINESS.DISTRICT_PUMPS} pumps + district rights`,
+    pumps: 'Initial pumps + district rights',
     features: [
       'Exclusive district / block territory',
-      'Recruit 40+ Pump Holders',
-      '10% incentive on each new pump',
-      '₹0.40/L on every district litre',
+      'Recruit Pump Holders across the district',
+      'Pump-sale incentive on each new pump',
+      'Commission on every district litre',
       'District-level branding',
     ],
     cta: { href: '/district-partner/apply', label: 'Apply as District Partner' },
@@ -44,14 +41,13 @@ const TIERS = [
   {
     icon: Fuel,
     name: 'Pump Holder',
-    investment: BUSINESS.PUMP_MRP,
-    pumps: '1 mini fuel pump',
+    pumps: 'One Mini Fuel Pump',
     features: [
       'Run your own neighbourhood fuel pump',
-      '₹2.50/L commission on every litre',
-      '~₹25,000/month at 10,000 L',
+      'Commission on every litre dispensed',
       'Operational support from AIVC',
       'Full installation & training',
+      'Branding kit & POS / billing app',
     ],
     cta: { href: '/pump-holder/apply', label: 'Apply for Pump Allotment' },
     accent: 'forest' as const,
@@ -65,7 +61,7 @@ export function PartnerTiers() {
         <SectionHeader
           eyebrow="Partnership Models"
           title="Choose Your Path"
-          description="Three investment tiers designed for different ambitions, capital and risk appetite."
+          description="Three partner tiers designed for different ambitions and risk appetites — from a single mini pump to state-wide rights."
         />
 
         <div className="grid gap-6 lg:grid-cols-3">
@@ -97,10 +93,9 @@ export function PartnerTiers() {
                   </div>
                   <CardTitle>{tier.name}</CardTitle>
                   <p className="text-sm text-navy-600">{tier.pumps}</p>
-                  <p className="mt-3 font-display text-3xl font-bold text-navy-900">
-                    {formatINR(tier.investment, { compact: true })}
+                  <p className="mt-3 text-xs uppercase tracking-wider text-gold-700">
+                    Investment shared on call
                   </p>
-                  <p className="text-xs uppercase tracking-wider text-navy-500">Total Investment</p>
                 </CardHeader>
                 <CardContent className="flex flex-1 flex-col">
                   <ul className="flex-1 space-y-2 text-sm text-navy-700">

@@ -11,8 +11,8 @@ export function CTASection() {
           Ready to <span className="gold-text">Start Earning?</span>
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-lg text-navy-100">
-          Whether you're investing ₹14 lakh or ₹1 crore, the Maharashtra fuel revolution has a place for you.
-          Apply today, lock your district, and start earning from day one.
+          Whichever tier suits your ambition, the Maharashtra fuel revolution has a place for you. Apply
+          today, lock your district, and start earning from day one. Investment & earnings shared on a call.
         </p>
         <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <Button asChild variant="gold" size="xl">

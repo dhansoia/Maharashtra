@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { CheckCircle2, Gauge, Shield, Smartphone, Wrench } from 'lucide-react'
 import { SectionHeader } from '@/components/ui/section-header'
 import { Card, CardContent } from '@/components/ui/card'
+import { ContactStatePartnerCTA } from '@/components/shared/ContactStatePartnerCTA'
 
 export const metadata: Metadata = {
   title: 'What is a Mini Fuel Pump?',
@@ -65,15 +66,15 @@ export default function MiniFuelPumpPage() {
       <section className="bg-navy-50/40 py-16">
         <div className="container-default">
           <SectionHeader
-            eyebrow="Investment"
-            title="What's included in ₹14,16,000?"
-            description="Your one-time payment covers everything except site civil work and operating capital."
+            eyebrow="What's Included"
+            title="A Complete Pump Programme"
+            description="The Pump Holder onboarding covers everything except site civil work and operating capital."
           />
           <Card className="mx-auto max-w-3xl">
             <CardContent className="p-6">
               <ul className="space-y-3 text-sm text-navy-700">
                 <ListItem>Mini Fuel Pump unit (dispenser + tank + control)</ListItem>
-                <ListItem>18% GST</ListItem>
+                <ListItem>Applicable taxes</ListItem>
                 <ListItem>Installation & commissioning by AIVC engineers</ListItem>
                 <ListItem>Operator training (7 days)</ListItem>
                 <ListItem>Branding kit & signage</ListItem>
@@ -82,6 +83,13 @@ export default function MiniFuelPumpPage() {
               </ul>
             </CardContent>
           </Card>
+          <div className="mx-auto mt-10 max-w-3xl">
+            <ContactStatePartnerCTA
+              variant="compact"
+              title="Want the investment figure?"
+              description="Pump price and per-litre commission are shared on a one-on-one call."
+            />
+          </div>
         </div>
       </section>
     </>

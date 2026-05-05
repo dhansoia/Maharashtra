@@ -2,19 +2,17 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, Coins, Home, Lightbulb, Truck, Wrench, Zap } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardContent } from '@/components/ui/card'
 import { SectionHeader } from '@/components/ui/section-header'
-import { BUSINESS, formatINR } from '@/lib/constants'
+import { ContactStatePartnerCTA } from '@/components/shared/ContactStatePartnerCTA'
 
 export const metadata: Metadata = {
   title: 'Mini Fuel Pump Holder Programme',
   description:
-    'Start your own neighbourhood fuel business with a Mini Fuel Pump. ₹14.16 L investment, ₹2.50/L commission, ~₹25,000/month income at 10,000 L.',
+    'Start your own neighbourhood fuel business with an AIVC iFuel Mini Fuel Pump. Recurring commission on every litre dispensed.',
 }
 
 export default function PumpHolderPage() {
-  const monthly = BUSINESS.LITRES_PER_MONTH * BUSINESS.FUEL_COMMISSION.PUMP_HOLDER
-
   return (
     <>
       <section className="gradient-hero py-16 text-white">
@@ -26,8 +24,8 @@ export default function PumpHolderPage() {
             Start Your Own <span className="gold-text">Fuel Business</span>
           </h1>
           <p className="mt-4 max-w-3xl text-lg text-navy-200">
-            Own a Mini Fuel Pump on your land. Earn ₹2.50 commission on every litre dispensed — that's ~₹25,000
-            recurring income per month at 10,000 L.
+            Own a Mini Fuel Pump on your land. Earn a recurring commission on every litre you dispense — built
+            for rural and semi-urban Maharashtra.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Button asChild variant="gold" size="lg">
@@ -36,7 +34,7 @@ export default function PumpHolderPage() {
               </Link>
             </Button>
             <Button asChild size="lg" className="bg-white text-navy-900 hover:bg-gold-100">
-              <Link href="/business-opportunity#roi">Calculate Earnings</Link>
+              <Link href="/contact">Talk to State Partner</Link>
             </Button>
           </div>
         </div>
@@ -44,20 +42,22 @@ export default function PumpHolderPage() {
 
       <section className="bg-white py-16">
         <div className="container-default">
-          <SectionHeader eyebrow="Investment" title="Single, Transparent Cost" />
+          <SectionHeader
+            eyebrow="What's Included"
+            title="A Complete Pump-in-a-Box Programme"
+            description="A single onboarding covers the pump, installation, training, branding and digital billing — civil work and operating capital are arranged by the applicant."
+          />
           <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-3">
-            <StatCardLarge label="Pump MRP" value={formatINR(BUSINESS.PUMP_MRP)} sub="(₹12 L + 18% GST)" />
-            <StatCardLarge label="Monthly Income" value={formatINR(monthly)} sub="@ 10,000 L/month" highlight />
-            <StatCardLarge
-              label="Annual Income"
-              value={formatINR(monthly * 12)}
-              sub="Pure recurring commission"
+            <BenefitCard title="Mini Fuel Pump" description="Dispenser unit, tank and control panel, delivered & installed by AIVC." />
+            <BenefitCard title="Operator Training" description="A week of hands-on training covering safe dispensing, billing and reconciliation." />
+            <BenefitCard title="Branding & Tech" description="Signage kit, POS system and the iFuel mobile app for receipts & dashboards." />
+          </div>
+          <div className="mx-auto mt-10 max-w-4xl">
+            <ContactStatePartnerCTA
+              title="What's the investment?"
+              description="The pump price, applicable taxes, civil-work estimate and the per-litre commission are shared one-on-one by the State Partner. Reach out and we'll walk you through the full picture."
             />
           </div>
-          <p className="mx-auto mt-6 max-w-2xl text-center text-sm text-navy-500">
-            Civil work (foundation, canopy, wiring) is borne separately by the applicant. Estimated ₹1.5–₹2.5 lakh
-            depending on site readiness.
-          </p>
         </div>
       </section>
 
@@ -136,31 +136,20 @@ const REQUIREMENTS = [
 
 const STEPS = [
   { title: 'Submit online application', description: 'Personal details, land details, documents and site photos.' },
-  { title: 'Document verification', description: 'KYC, land papers, bank details validated by AIVC team.' },
+  { title: 'Document verification', description: 'KYC, land papers, bank details validated by the AIVC team.' },
   { title: 'Site verification', description: 'Physical site visit by AIVC technical team for pump suitability.' },
   { title: 'Approval & MOU', description: 'Allotment letter issued, MOU signed, payment instructions shared.' },
-  { title: 'Civil work + installation', description: 'Applicant completes civil work; AIVC installs pump.' },
+  { title: 'Civil work + installation', description: 'Applicant completes civil work; AIVC installs the pump.' },
   { title: 'Commissioning & training', description: 'Test-run, operator training and go-live with billing system.' },
 ]
 
-function StatCardLarge({
-  label,
-  value,
-  sub,
-  highlight,
-}: {
-  label: string
-  value: string
-  sub?: string
-  highlight?: boolean
-}) {
+function BenefitCard({ title, description }: { title: string; description: string }) {
   return (
-    <Card className={highlight ? 'border-gold-300 bg-gold-50/40' : ''}>
-      <CardHeader>
-        <p className="text-xs font-medium uppercase tracking-widest text-navy-500">{label}</p>
-        <p className={`font-display text-3xl font-bold ${highlight ? 'text-gold-700' : 'text-navy-900'}`}>{value}</p>
-        {sub ? <p className="mt-1 text-sm text-navy-500">{sub}</p> : null}
-      </CardHeader>
+    <Card>
+      <CardContent className="p-6">
+        <h3 className="font-display text-base font-semibold text-navy-900">{title}</h3>
+        <p className="mt-2 text-sm text-navy-600">{description}</p>
+      </CardContent>
     </Card>
   )
 }

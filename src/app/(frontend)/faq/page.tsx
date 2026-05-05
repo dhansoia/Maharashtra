@@ -13,17 +13,22 @@ const FAQS: { category: string; q: string; a: string }[] = [
   {
     category: 'General',
     q: 'Who can apply?',
-    a: 'Any Indian individual or registered entity that is 21+ years old, KYC-compliant, and has the financial readiness for the chosen tier (₹14.16 L for Pump Holder; ₹1.02 Cr for District Partner).',
+    a: 'Any Indian individual or registered entity that is 21+ years old, KYC-compliant, and has the financial readiness for the chosen tier. The State Partner shares the exact investment figures one-on-one.',
   },
   {
     category: 'District Partner',
     q: 'Can I get more than one district?',
-    a: 'Each District Partner is allotted one district. State-Partner-level engagements are separate and require ₹4.88 Cr commitment.',
+    a: 'Each District Partner is allotted one district. State-Partner-level engagements are separate and discussed on a one-on-one call.',
   },
   {
     category: 'District Partner',
-    q: 'How does the 10% incentive work?',
-    a: 'For every additional Pump Holder (above your initial 6 pumps) you onboard in your district, you receive ₹1,20,000 as a one-time incentive (10% of the discounted pump base).',
+    q: 'How does the pump-sale incentive work?',
+    a: 'For every additional Pump Holder you onboard in your district (above your initial allotment), you receive a one-time pump-sale incentive. The exact percentage and amount are shared by the State Partner during onboarding.',
+  },
+  {
+    category: 'Investment',
+    q: 'Where can I see the investment and earnings figures?',
+    a: 'We deliberately do not publish investment, commission or earnings figures online. The State Partner walks every prospective partner through them in detail on a one-on-one call. Submit an application or use the Contact page to schedule a call.',
   },
   {
     category: 'Pump Holder',

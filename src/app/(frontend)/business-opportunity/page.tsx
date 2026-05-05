@@ -1,16 +1,15 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, Coins, IndianRupee, Layers, Shield } from 'lucide-react'
-import { ROICalculator } from '@/components/calculators/ROICalculator'
 import { SectionHeader } from '@/components/ui/section-header'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { BUSINESS, formatINR } from '@/lib/constants'
+import { ContactStatePartnerCTA } from '@/components/shared/ContactStatePartnerCTA'
 
 export const metadata: Metadata = {
   title: 'Business Opportunity',
   description:
-    'Detailed investment, earnings, ROI calculator and unit economics for AIVC iFuel Maharashtra District Partner and Pump Holder programmes.',
+    'Why the AIVC iFuel Maharashtra programme is the right time to enter India\'s distributed-fuel network.',
 }
 
 export default function BusinessOpportunityPage() {
@@ -33,10 +32,7 @@ export default function BusinessOpportunityPage() {
 
       <section className="bg-white py-16">
         <div className="container-default">
-          <SectionHeader
-            eyebrow="Why Now"
-            title="Four Strong Reasons to Invest"
-          />
+          <SectionHeader eyebrow="Why Now" title="Four Strong Reasons to Invest" />
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {WHY_REASONS.map((r) => {
               const Icon = r.icon
@@ -56,51 +52,14 @@ export default function BusinessOpportunityPage() {
         </div>
       </section>
 
-      <ROICalculator />
-
       <section className="bg-navy-50/40 py-16">
         <div className="container-default">
           <SectionHeader
-            eyebrow="Unit Economics"
-            title="The Numbers Behind Every Pump"
-            description="Single source of truth that powers all our calculations."
+            eyebrow="Investment & Earnings"
+            title="The numbers we share over a call"
+            description="We deliberately don't publish investment, commission or earnings figures online. The State Partner walks every prospective partner through them in detail, tailored to your district and tier."
           />
-          <div className="grid gap-6 lg:grid-cols-2">
-            <Card>
-              <CardHeader>
-                <CardTitle>Pump Costing</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <BreakdownTable
-                  rows={[
-                    ['Pump Base Price', formatINR(BUSINESS.PUMP_BASE)],
-                    ['GST @ 18%', formatINR(BUSINESS.PUMP_BASE * BUSINESS.GST_RATE)],
-                    ['MRP', formatINR(BUSINESS.PUMP_MRP)],
-                    ['Discount @ 10% (for Partners)', `-${formatINR(BUSINESS.PUMP_BASE * BUSINESS.DISCOUNT)}`],
-                    ['Discounted base', formatINR(BUSINESS.PUMP_BASE * (1 - BUSINESS.DISCOUNT))],
-                    ['Discounted base + GST', formatINR(BUSINESS.PUMP_DISCOUNTED)],
-                    ['Margin per pump', formatINR(BUSINESS.PUMP_MARGIN)],
-                  ]}
-                />
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardTitle>Fuel Commission Split (per litre)</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <BreakdownTable
-                  rows={[
-                    ['Pump Holder', `₹${BUSINESS.FUEL_COMMISSION.PUMP_HOLDER.toFixed(2)}`],
-                    ['District Partner', `₹${BUSINESS.FUEL_COMMISSION.DISTRICT.toFixed(2)}`],
-                    ['State Partner', `₹${BUSINESS.FUEL_COMMISSION.STATE.toFixed(2)}`],
-                    ['AIVC National', `₹${BUSINESS.FUEL_COMMISSION.NATIONAL.toFixed(2)}`],
-                    ['Total', `₹${BUSINESS.FUEL_COMMISSION.TOTAL.toFixed(2)}`],
-                  ]}
-                />
-              </CardContent>
-            </Card>
-          </div>
+          <ContactStatePartnerCTA className="mx-auto max-w-4xl" />
         </div>
       </section>
 
@@ -129,42 +88,22 @@ export default function BusinessOpportunityPage() {
 const WHY_REASONS = [
   {
     icon: IndianRupee,
-    title: 'High Recurring Income',
-    description: '₹0.40-₹2.50 per litre commission across 30-480 pumps — true passive income, not a one-time sale.',
+    title: 'Recurring Fuel Commission',
+    description: 'Every litre dispensed across your network earns you a per-litre commission — true passive income, not a one-time sale.',
   },
   {
     icon: Layers,
     title: 'Multiple Revenue Streams',
-    description: 'Pump margin, 10% sale incentive, monthly fuel commission and territory exclusivity — stack them all.',
+    description: 'Pump margin, pump-sale incentive, monthly fuel commission and territory exclusivity stack together.',
   },
   {
     icon: Shield,
     title: 'AIVC + iFuel Backed',
-    description: 'Operational support, branding, training, fuel logistics and compliance handled by national network.',
+    description: 'Operational support, branding, training, fuel logistics and compliance handled by the national network.',
   },
   {
     icon: Coins,
-    title: '~3 Year Payback',
-    description: 'District Partner payback under 3 years; Pump Holder under 5. Healthy margins thereafter.',
+    title: 'Healthy Payback',
+    description: 'Tiers are designed for a reasonable payback period and strong long-term returns. Exact figures shared on call.',
   },
 ]
-
-function BreakdownTable({ rows }: { rows: [string, string][] }) {
-  return (
-    <table className="w-full text-sm">
-      <tbody className="divide-y divide-navy-100">
-        {rows.map(([label, value], i) => {
-          const isLast = i === rows.length - 1
-          return (
-            <tr key={label}>
-              <td className={`px-2 py-3 text-navy-700 ${isLast ? 'font-semibold' : ''}`}>{label}</td>
-              <td className={`px-2 py-3 text-right font-mono ${isLast ? 'font-bold text-gold-700' : 'text-navy-900'}`}>
-                {value}
-              </td>
-            </tr>
-          )
-        })}
-      </tbody>
-    </table>
-  )
-}

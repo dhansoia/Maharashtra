@@ -10,7 +10,6 @@ import { FieldText, FieldTextarea, FieldSelect } from './FormField'
 import { StepIndicator } from './StepIndicator'
 import { Card, CardContent } from '@/components/ui/card'
 import { MAHARASHTRA_DISTRICTS } from '@/lib/maharashtra-districts'
-import { BUSINESS, formatINR } from '@/lib/constants'
 
 const STEPS = ['Personal', 'Address', 'Site', 'Investment', 'Submit']
 
@@ -244,16 +243,18 @@ export function PumpHolderForm() {
 
             {step === 3 ? (
               <>
-                <h2 className="font-display text-2xl font-bold text-navy-900">Step 4 — Investment Acknowledgement</h2>
-                <div className="rounded-lg bg-navy-50 p-4">
-                  <p className="text-sm text-navy-700">
-                    <strong>Pump cost:</strong> {formatINR(BUSINESS.PUMP_MRP)} (incl. 18% GST). Civil work, electrical
-                    setup and operating capital are borne separately by the applicant. AIVC handles installation,
+                <h2 className="font-display text-2xl font-bold text-navy-900">Step 4 — Acknowledgement</h2>
+                <div className="rounded-lg border border-gold-300 bg-gold-50/50 p-4 text-sm text-navy-800">
+                  <p className="font-semibold text-navy-900">Investment & earnings</p>
+                  <p className="mt-1">
+                    The State Partner will share pump price, applicable taxes and per-litre commission on a
+                    one-on-one call once your application is shortlisted. Civil work, electrical setup and
+                    operating capital are borne separately by the applicant; AIVC handles installation,
                     training and ongoing operational support.
                   </p>
                 </div>
                 <Checkbox
-                  label="I understand the investment, civil work and operational responsibilities."
+                  label="I am aware that investment will be shared by the State Partner on a call, and I confirm I can arrange civil work and operating capital separately."
                   {...form.register('ackInvestment')}
                   name="ackInvestment"
                   error={errors.ackInvestment?.message}

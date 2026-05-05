@@ -9,7 +9,6 @@ import { Button } from '@/components/ui/button'
 import { FieldText, FieldTextarea, FieldSelect } from './FormField'
 import { StepIndicator } from './StepIndicator'
 import { Card, CardContent } from '@/components/ui/card'
-import { BUSINESS, formatINR } from '@/lib/constants'
 import { MAHARASHTRA_DISTRICTS } from '@/lib/maharashtra-districts'
 
 const STEPS = ['Identity', 'Business', 'Territory', 'Investment', 'Submit']
@@ -243,7 +242,7 @@ export function DistrictPartnerForm() {
                     label="Annual Turnover (₹)"
                     {...form.register('annualTurnover')}
                     name="annualTurnover"
-                    placeholder="e.g. 1.5 Cr"
+                    placeholder="Annual turnover in INR"
                   />
                   <FieldSelect
                     label="Industry Experience"
@@ -307,36 +306,19 @@ export function DistrictPartnerForm() {
             {step === 3 ? (
               <>
                 <h2 className="font-display text-2xl font-bold text-navy-900">
-                  Step 4 — Investment & MOU Acknowledgement
+                  Step 4 — Acknowledgement
                 </h2>
-                <div className="rounded-lg bg-navy-50 p-4">
-                  <h3 className="font-display text-base font-semibold text-navy-900">Investment Summary</h3>
-                  <table className="mt-2 w-full text-sm">
-                    <tbody className="divide-y divide-navy-200">
-                      <tr>
-                        <td className="py-2 text-navy-700">Registration Fee</td>
-                        <td className="py-2 text-right font-mono">{formatINR(BUSINESS.DISTRICT_REG)}</td>
-                      </tr>
-                      <tr>
-                        <td className="py-2 text-navy-700">
-                          6 pumps × {formatINR(BUSINESS.PUMP_DISCOUNTED)}
-                        </td>
-                        <td className="py-2 text-right font-mono">
-                          {formatINR(BUSINESS.DISTRICT_PUMPS * BUSINESS.PUMP_DISCOUNTED)}
-                        </td>
-                      </tr>
-                      <tr className="font-bold">
-                        <td className="py-2 text-navy-900">Total</td>
-                        <td className="py-2 text-right font-mono text-gold-700">
-                          {formatINR(BUSINESS.DISTRICT_TOTAL)}
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
+                <div className="rounded-lg border border-gold-300 bg-gold-50/50 p-4 text-sm text-navy-800">
+                  <p className="font-semibold text-navy-900">Investment & earnings</p>
+                  <p className="mt-1">
+                    The State Partner will walk you through investment, commission and projected earnings on
+                    a one-on-one call once your application is shortlisted. We do not publish these figures
+                    online.
+                  </p>
                 </div>
                 <div className="space-y-3">
                   <Checkbox
-                    label="I understand the total investment of ₹1,02,76,000 and confirm financial readiness."
+                    label="I am aware that investment and earnings will be shared by the State Partner on a call, and I confirm financial readiness in principle."
                     {...form.register('ackInvestment')}
                     name="ackInvestment"
                     error={errors.ackInvestment?.message}

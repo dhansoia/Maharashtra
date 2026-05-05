@@ -17,7 +17,7 @@ const TESTIMONIALS = [
   {
     name: 'Suresh Deshmukh',
     role: 'Pump Holder — Satara',
-    quote: 'I was a transport operator. With one pump on my farmhouse plot I now earn ~₹28,000 every month.',
+    quote: 'I was a transport operator. With one pump on my farmhouse plot I now have a steady recurring income — and supply diesel to my own vehicles too.',
     rating: 5,
   },
   {

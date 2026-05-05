@@ -66,7 +66,7 @@ export function HeroBanner() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="mt-10 flex items-center gap-6 text-sm text-navy-200"
+            className="mt-10 flex flex-wrap items-center gap-6 text-sm text-navy-200"
           >
             <div>
               <p className="font-display text-2xl font-bold text-white">36</p>
@@ -74,13 +74,13 @@ export function HeroBanner() {
             </div>
             <div className="h-10 w-px bg-white/20" />
             <div>
-              <p className="font-display text-2xl font-bold text-white">480+</p>
-              <p>Pumps Target</p>
+              <p className="font-display text-2xl font-bold text-white">5</p>
+              <p>Regions</p>
             </div>
             <div className="h-10 w-px bg-white/20" />
             <div>
-              <p className="font-display text-2xl font-bold text-white">₹3.50</p>
-              <p>Per Litre</p>
+              <p className="font-display text-2xl font-bold text-white">3</p>
+              <p>Partner Tiers</p>
             </div>
           </motion.div>
         </div>
@@ -99,16 +99,21 @@ export function HeroBanner() {
             <div className="mt-5 space-y-4">
               <PartnerSummary
                 tier="State Partner"
-                amount="₹4.88 Cr"
-                pumps="30 pumps + 12 districts"
+                pumps="District network + state-wide rights"
               />
               <PartnerSummary
                 tier="District Partner"
-                amount="₹1.02 Cr"
-                pumps="6 pumps + district rights"
+                pumps="Initial pumps + district rights"
               />
-              <PartnerSummary tier="Pump Holder" amount="₹14.16 L" pumps="1 mini pump" />
+              <PartnerSummary tier="Pump Holder" pumps="Single Mini Fuel Pump" />
             </div>
+            <p className="mt-5 rounded-md bg-white/10 px-3 py-2 text-xs text-navy-100">
+              Investment & earnings shared on a one-on-one call. {' '}
+              <a href="/contact" className="font-semibold text-gold-300 underline">
+                Contact the State Partner
+              </a>
+              .
+            </p>
           </div>
         </motion.div>
       </div>
@@ -116,14 +121,13 @@ export function HeroBanner() {
   )
 }
 
-function PartnerSummary({ tier, amount, pumps }: { tier: string; amount: string; pumps: string }) {
+function PartnerSummary({ tier, pumps }: { tier: string; pumps: string }) {
   return (
-    <div className="flex items-center justify-between rounded-lg border border-white/10 bg-white/5 p-4">
+    <div className="flex items-center justify-between gap-4 rounded-lg border border-white/10 bg-white/5 p-4">
       <div>
         <p className="text-sm font-semibold text-white">{tier}</p>
         <p className="text-xs text-navy-200">{pumps}</p>
       </div>
-      <p className="font-display text-lg font-bold text-gold-300">{amount}</p>
     </div>
   )
 }
